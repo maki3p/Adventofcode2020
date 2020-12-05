@@ -85,7 +85,7 @@ namespace adventofcode2020.Days
                         OnPlaceCounter++;
                     }
 
-                    if(ValidCounter == 1)
+                    if(OnPlaceCounter == 1)
                     {
                         Counter++;
                     }
