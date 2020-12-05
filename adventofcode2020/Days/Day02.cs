@@ -67,25 +67,28 @@ namespace adventofcode2020.Days
             List<Day02> Passwords = ReadFile();
 
             int Counter = 0;
+            
             foreach (var pass in Passwords)
             {
                 if (pass.Password.Contains(pass.Letter))
                 {
-                    //Console.WriteLine(pass.Password.ToCharArray()[0] + " " + pass.Password.ToCharArray()[pass.Min - 1] + " " + pass.Password.ToCharArray()[pass.Max - 1]);
-                    //Console.WriteLine();
-                    //Console.WriteLine(pass.Password.ToCharArray()[pass.Max - 1]);
                     var charPassword = pass.Password;
-                    if (charPassword[pass.Min - 1] == pass.Letter || charPassword[pass.Max - 1] == pass.Letter)
+                    int OnPlaceCounter = 0;
+              
+                    if (charPassword[pass.Min - 1] == pass.Letter)
                     {
-                        if(pass.Password.Count(x=> x == pass.Letter) > 1)
-                        {
-                            Counter++;
-                        }
-                        //Console.WriteLine(pass.Password);
-
-                       
+                        OnPlaceCounter++;
                     }
 
+                    if (charPassword[pass.Max - 1] == pass.Letter)
+                    {
+                        OnPlaceCounter++;
+                    }
+
+                    if(ValidCounter == 1)
+                    {
+                        Counter++;
+                    }
                 }
             }
             Console.WriteLine("Day 02 task 2 result: " + Counter);
