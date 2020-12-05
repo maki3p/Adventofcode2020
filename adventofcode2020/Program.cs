@@ -14,9 +14,11 @@ namespace adventofcode2020
             //Day01.Task01();
             //Day01.Task02();
 
-           // Day02.Taks01();
-            Day02.Taks02();
-        }
+            //Day02.Taks01();
+            //Day02.Taks02();
+            Day03.Taks01();
        
+        }
+
     }
 }
