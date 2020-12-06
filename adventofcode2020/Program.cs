@@ -11,14 +11,34 @@ namespace adventofcode2020
     {
         static void Main(string[] args)
         {
-            //Day01.Task01();
-            //Day01.Task02();
+            Console.WriteLine("Advent Of Code2020");
+            Console.WriteLine("Get results from a day: 'Enter Day' ");
 
-            //Day02.Taks01();
-            //Day02.Taks02();
-            Day03.Taks01();
-       
+            ChoiceDay();
         }
 
+        public static void ChoiceDay()
+        {
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    Day01.Task01();
+                    Day01.Task02();
+                    break;
+                case "2":
+                    Day02.Taks01();
+                    Day02.Taks02();
+                    break;
+                case "3":
+                    Day03.Task01();
+                    Day03.Task02();
+                    break;
+                default:
+                    Console.WriteLine("No result for selected day");
+                    Console.ReadLine();
+                    ChoiceDay();
+                    break;
+            }
+        }
     }
 }
