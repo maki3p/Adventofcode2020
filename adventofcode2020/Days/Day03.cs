@@ -7,7 +7,7 @@ namespace adventofcode2020.Days
 {
     public class Day03
     {
-        private static Day03 _day03 = new Day03();
+        private static readonly Day03 _day03 = new Day03();
 
         private static List<string> ReadFile()
         {
