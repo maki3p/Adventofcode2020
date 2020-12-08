@@ -20,12 +20,7 @@ namespace adventofcode2020.Days
 
         public static void Task01()
         {
-            List<string> planeTickets = ReadFile();
-            List<int> result = new List<int>();
-            foreach (var item in planeTickets)
-            {
-                result.Add(_day05.GetSeat(item));
-            }
+            List<int> result = _day05.GetSeats();
 
             Console.WriteLine("Day 05 task 1 result : " + result.Max());
             Console.ReadLine();
@@ -33,46 +28,44 @@ namespace adventofcode2020.Days
 
         public static void Task02()
         {
+            List<int> result = _day05.GetSeats();
 
-            List<string> planeTickets = ReadFile();
-            List<int> result = new List<int>();
-            foreach (var item in planeTickets)
-            {
-                result.Add(_day05.GetSeat(item));
-            }
+            int mySeat = (result.Max() - result.Min() + 1) / 2 * (result.Min() + result.Max());
 
-            int theoreticalSum = (result.Max() - result.Min() + 1) / 2 * (result.Min() + result.Max());
-
-            Console.WriteLine("Day 05 task 2 result : " + (theoreticalSum - result.Sum()).ToString());
+            Console.WriteLine("Day 05 task 2 result : " + (mySeat - result.Sum()).ToString());
             Console.ReadLine();
         }
 
-        private int GetSeat(String str)
+        private List<int> GetSeats()
         {
-            var (minInterval, maxInterval) = (0, 127);
-            var (left, right) = (0, 7);
-            foreach (var c in str.ToCharArray())
+            List<string> planeTickets = ReadFile();
+            List<int> result = new List<int>();
+
+            foreach (var item in planeTickets)
             {
-                if (c == 'F')
+                var s = "";
+                foreach (var chart in item.ToCharArray())
                 {
-                    maxInterval = maxInterval - (maxInterval - minInterval) / 2 - 1;
+                    if (chart == 'F')
+                    {
+                        s += 0;
+                    }
+                    else if (chart == 'B')
+                    {
+                        s += 1;
+                    }
+                    else if (chart == 'L')
+                    {
+                        s += 0;
+                    }
+                    else if (chart == 'R')
+                    {
+                        s += 1;
+                    }
                 }
-                else if (c == 'B')
-                {
-                    minInterval = minInterval + (maxInterval - minInterval) / 2 + 1;
-                }
-                else if (c == 'L')
-                {
-                    right = right - (right - left) / 2 - 1;
-                }
-                else
-                {
-                    left = left + (right - left) / 2 + 1;
-                }
+                result.Add(Convert.ToInt32(s, 2));
             }
-
-            return minInterval * 8 + left;
+            return result;
         }
-
     }
 }

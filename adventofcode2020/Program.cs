@@ -14,8 +14,7 @@ namespace adventofcode2020
             Console.WriteLine("Advent Of Code2020");
             Console.WriteLine("Get results from a day: 'Enter Day' ");
 
-            Day05.Task02();
-            //ChoiceDay();
+            ChoiceDay();
         }
 
         public static void ChoiceDay()
@@ -37,6 +36,10 @@ namespace adventofcode2020
                 case "4":
                     Day04.Task01();
                     Day04.Task02();
+                    break;
+                case "5":
+                    Day05.Task01();
+                    Day05.Task02();
                     break;
                 default:
                     Console.WriteLine("No result for selected day");
