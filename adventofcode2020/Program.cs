@@ -41,6 +41,10 @@ namespace adventofcode2020
                     Day05.Task01();
                     Day05.Task02();
                     break;
+                case "6":
+                    Day06.Task01();
+                    Day06.Task02();
+                    break;
                 default:
                     Console.WriteLine("No result for selected day");
                     Console.ReadLine();
